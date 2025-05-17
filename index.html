@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Latest Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f7f7f7;
+    }
+    header {
+      background: white;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #444;
+    }
+    .main-banner {
+      display: flex;
+      background: linear-gradient(to right, #f7f7f7 50%, #00c896 50%);
+      padding: 60px;
+      align-items: center;
+      color: #333;
+    }
+    .main-banner img {
+      max-width: 300px;
+      margin-left: auto;
+    }
+    .main-banner h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .main-banner p {
+      font-size: 18px;
+      color: #555;
+    }
+    .section {
+      padding: 60px;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .about {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .about img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    .categories ul {
+      list-style: none;
+      line-height: 2;
+    }
+    .discount {
+      background-color: #fff;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>FurniStyle</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#categories">Categories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="main-banner">
+    <div>
+      <h1>The Latest Furniture</h1>
+      <p>Discover stylish, modern and comfortable furniture made to fit your home perfectly.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1582582494700-316f03f0c12c?auto=format&fit=crop&w=500&q=80" alt="Chair" />
+  </section>  <section class="section about" id="about">
+    <img src="https://images.unsplash.com/photo-1606813902881-cb93f01981b2?auto=format&fit=crop&w=400&q=80" alt="About Chair">
+    <div>
+      <h2>About Us</h2>
+      <p>At FurniStyle, we curate a collection of elegant and functional furniture pieces that blend aesthetics with comfort. From sleek minimalist chairs to luxurious sofas, we design furniture that elevates your space.</p>
+    </div>
+  </section>  <section class="section categories" id="categories">
+    <h2>Trending Categories</h2>
+    <div class="grid">
+      <div>
+        <img src="https://images.unsplash.com/photo-1603791452906-8f2fd89c0e1e?auto=format&fit=crop&w=400&q=80" alt="Chair">
+        <h4>Chairs</h4>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1616628182501-2c18ec8aef57?auto=format&fit=crop&w=400&q=80" alt="Table">
+        <h4>Tables</h4>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1600228002410-6481e77ef9c6?auto=format&fit=crop&w=400&q=80" alt="Sofa">
+        <h4>Sofas</h4>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1582234372721-fd551b81fabc?auto=format&fit=crop&w=400&q=80" alt="Storage">
+        <h4>Storage</h4>
+      </div>
+    </div>
+  </section>  <section class="section discount">
+    <h2>The Latest Collection</h2>
+    <p><strong>50% DISCOUNT</strong> on selected items until the end of this month. Upgrade your home now!</p>
+  </section>  <footer id="contact">
+    <p>&copy; 2025 FurniStyle. All rights reserved.</p>
+  </footer>
+</body>
+</html>
