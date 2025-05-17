@@ -2,139 +2,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Latest Furniture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Furniture Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
     }
     body {
-      background-color: #f7f7f7;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      color: #333;
     }
     header {
-      background: white;
-      padding: 20px 60px;
+      background: #fff;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #444;
+    .logo {
+      font-size: 1.5rem;
+      color: #29c17e;
+      font-weight: 700;
     }
-    .main-banner {
+    nav ul {
+      list-style: none;
       display: flex;
-      background: linear-gradient(to right, #f7f7f7 50%, #00c896 50%);
-      padding: 60px;
-      align-items: center;
+      gap: 2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
       color: #333;
+      transition: color 0.3s ease;
     }
-    .main-banner img {
-      max-width: 300px;
-      margin-left: auto;
+    nav ul li a:hover {
+      color: #29c17e;
     }
-    .main-banner h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
     }
-    .main-banner p {
-      font-size: 18px;
-      color: #555;
+    .menu-toggle span {
+      background: #333;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
     }
-    .section {
-      padding: 60px;
+    .hero {
+      background: linear-gradient(to right, #29c17e, #66e3b6);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
     }
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-    .grid {
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    section {
+      padding: 4rem 2rem;
+    }
+    .about, .categories, .promo {
+      text-align: center;
+      animation: slideUp 1s ease;
+    }
+    .about img, .promo img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .about img:hover, .promo img:hover {
+      transform: scale(1.05);
+    }
+    .categories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-    .grid img {
+    .categories-grid img {
       width: 100%;
       border-radius: 10px;
+      transition: transform 0.3s ease;
     }
-    .about {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-    .about img {
-      max-width: 300px;
-      border-radius: 10px;
-    }
-    .categories ul {
-      list-style: none;
-      line-height: 2;
-    }
-    .discount {
-      background-color: #fff;
-      padding: 40px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .categories-grid img:hover {
+      transform: translateY(-5px);
     }
     footer {
-      background: #333;
-      color: white;
-      padding: 30px;
+      background: #222;
+      color: #fff;
       text-align: center;
+      padding: 2rem 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 2rem;
+        width: 200px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 1rem;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h2>FurniStyle</h2>
+    <div class="logo">CRN</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#categories">Categories</a>
-      <a href="#contact">Contact</a>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul id="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#promo">Promo</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-  </header>  <section class="main-banner">
-    <div>
-      <h1>The Latest Furniture</h1>
-      <p>Discover stylish, modern and comfortable furniture made to fit your home perfectly.</p>
-    </div>
-    <img src="https://images.unsplash.com/photo-1582582494700-316f03f0c12c?auto=format&fit=crop&w=500&q=80" alt="Chair" />
-  </section>  <section class="section about" id="about">
-    <img src="https://images.unsplash.com/photo-1606813902881-cb93f01981b2?auto=format&fit=crop&w=400&q=80" alt="About Chair">
-    <div>
-      <h2>About Us</h2>
-      <p>At FurniStyle, we curate a collection of elegant and functional furniture pieces that blend aesthetics with comfort. From sleek minimalist chairs to luxurious sofas, we design furniture that elevates your space.</p>
-    </div>
-  </section>  <section class="section categories" id="categories">
+  </header>  <section class="hero">
+    <h1>The Latest Furniture Collection</h1>
+    <p>Elegant, comfortable, and affordable furniture to match your modern lifestyle.</p>
+  </section>  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>We provide high-quality, stylish furniture designed for modern living spaces. From chic chairs to smart storage, we’ve got you covered.</p>
+    <img src="https://images.unsplash.com/photo-1588854337112-4a8d2bfa9d1e?auto=format&fit=crop&w=800&q=80" alt="About furniture">
+  </section>  <section class="categories" id="categories">
     <h2>Trending Categories</h2>
-    <div class="grid">
-      <div>
-        <img src="https://images.unsplash.com/photo-1603791452906-8f2fd89c0e1e?auto=format&fit=crop&w=400&q=80" alt="Chair">
-        <h4>Chairs</h4>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1616628182501-2c18ec8aef57?auto=format&fit=crop&w=400&q=80" alt="Table">
-        <h4>Tables</h4>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1600228002410-6481e77ef9c6?auto=format&fit=crop&w=400&q=80" alt="Sofa">
-        <h4>Sofas</h4>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1582234372721-fd551b81fabc?auto=format&fit=crop&w=400&q=80" alt="Storage">
-        <h4>Storage</h4>
-      </div>
+    <div class="categories-grid">
+      <img src="https://images.unsplash.com/photo-1616627982415-0f9cc0c42493?auto=format&fit=crop&w=600&q=80" alt="Chair">
+      <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?auto=format&fit=crop&w=600&q=80" alt="Table">
+      <img src="https://images.unsplash.com/photo-1616627454996-68f38c72f2f9?auto=format&fit=crop&w=600&q=80" alt="Shelf">
+      <img src="https://images.unsplash.com/photo-1598300054292-dbe98ba3e3c6?auto=format&fit=crop&w=600&q=80" alt="Sofa">
     </div>
-  </section>  <section class="section discount">
-    <h2>The Latest Collection</h2>
-    <p><strong>50% DISCOUNT</strong> on selected items until the end of this month. Upgrade your home now!</p>
-  </section>  <footer id="contact">
-    <p>&copy; 2025 FurniStyle. All rights reserved.</p>
-  </footer>
-</body>
+  </section>  <section class="promo" id="promo">
+    <h2>Special Offer</h2>
+    <p>Get up to 50% off on selected collections this month only!</p>
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Promo furniture">
+  </section>  <footer>
+    <p>&copy; 2025 CRN Marketing. All rights reserved.</p>
+  </footer>  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script></body>
 </html>
